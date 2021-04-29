@@ -11,10 +11,10 @@ switch (flag_deploy_mode) {
     configs.api_url = "http://104.236.73.32/api";
     break;
   default:
-    configs.api_url = "http://localhost/api";
+    configs.api_url = "http://localhost:3000/api";
     break;
 }
-
+console.log("configs: ", configs);
 if (flag_deploy_mode === "DEV") {
   console.log("configs: ", configs);
 }
