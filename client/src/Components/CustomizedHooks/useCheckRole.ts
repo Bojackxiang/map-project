@@ -21,7 +21,6 @@ const useCheckRole = () => {
             ),
           }
         );
-        const response = authCheckResult.data;
         
         const { message, code, payload } = authCheckResult.data;
 
