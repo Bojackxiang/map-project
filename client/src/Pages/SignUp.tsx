@@ -5,7 +5,6 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import { useState } from "react";
 import useCheckiSessionToken from "../Components/CustomizedHooks/useCheckiSessionToken";
 import useSignUpHook from "../Components/CustomizedHooks/useSignUpHook";
 
