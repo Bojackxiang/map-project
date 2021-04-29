@@ -5,7 +5,7 @@ const configs = {
 
 switch (flag_deploy_mode) {
   case "DEV":
-    configs.api_url = "http://localhost:3000";
+    configs.api_url = "http://localhost:3001";
     break;
   case "PRODUCTION":
     configs.api_url = "http://104.236.73.32";
