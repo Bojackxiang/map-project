@@ -22,7 +22,7 @@ const useCheckRole = () => {
           }
         );
         const response = authCheckResult.data;
-        console.log(response);
+        
         const { message, code, payload } = authCheckResult.data;
 
         setIsAdmin({
@@ -39,6 +39,7 @@ const useCheckRole = () => {
         });
       }
     })();
+     // eslint-disable-next-line
   }, []);
 
   return {

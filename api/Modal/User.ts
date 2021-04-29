@@ -52,7 +52,7 @@ class User implements UserInterface {
         try {
             if (!this.username || !this.password || !this.email || !this.role)
                 throw new Error("Not enough information to create a user");
-            console.log(this.role);
+            
             if (this.role !== Roles.ADMIN && this.role !== Roles.READER)
                 throw new Error("Not Correct information to create a user");
 
@@ -165,11 +165,7 @@ class User implements UserInterface {
     }
 
     async passwordCompare(dbPassword: string, reqPassword: string) {
-        console.log({
-            dbPassword,
-            reqPassword,
-            decode: decodePassword(dbPassword),
-        });
+    
         return reqPassword === decodePassword(dbPassword);
     }
 

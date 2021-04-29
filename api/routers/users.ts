@@ -29,10 +29,10 @@ user_routers.post("/create-user", async (req, res) => {
 
 user_routers.post("/verify-user", async (req, res) => {
     const { email, password, sessionToken } = req.body;
-    console.log({ email, password, sessionToken });
+    
     //check the session token
     const user = new User(null);
-    console.log({ email, password });
+    
     const result = await user.verify({ email, password, sessionToken });
 
     if (!result.success) {
@@ -47,7 +47,7 @@ user_routers.post("/verify-user", async (req, res) => {
         return;
     }
 
-    console.log({ result });
+    
     const { username, role, token } = result.payload;
 
     res.send(

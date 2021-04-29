@@ -10,7 +10,7 @@ const useRequest = () => {
 
   useEffect(() => {
     (async () => {
-      console.log(process.env);
+      
       const url = `${configs.api_url}/get/visit`
       const resp = await axios.get(url);
       setUIState((prevState) => ({

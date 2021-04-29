@@ -39,6 +39,7 @@ const Dashboard = () => {
       }
       return null
     },
+     // eslint-disable-next-line
     [data],
   )
 

@@ -14,7 +14,6 @@ switch (flag_deploy_mode) {
     configs.api_url = "http://104.236.73.32";
     break;
 }
-console.log("configs: ", configs);
 if (flag_deploy_mode === "DEV") {
   console.log("configs: ", configs);
 }

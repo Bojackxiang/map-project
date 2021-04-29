@@ -47,6 +47,7 @@ const GoogleMapComponent: React.FC<IGoogleMapComponent> = (props) => {
           }
         );
       }
+       // eslint-disable-next-line
   }, [selectedLocation]);
 
   const GoogleMapDisplay = withGoogleMap((props) => {
