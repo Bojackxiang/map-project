@@ -14,3 +14,8 @@ Client: update the name of .env.example to .env
 # Deployment 
 in the root folder run `docker-compose up --build -d `
 
+I deployed the application on http://188.166.249.227/. 
+Find your location services is slow since the server is located at Singapore
+But other functions works. 
+
+
