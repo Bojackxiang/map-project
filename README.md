@@ -9,7 +9,8 @@ Client: update the name of .env.example to .env
         run `yarn install` or `npm install`
         enter the client fold and run `npm run start`
 
+        The go to the localhost:3000
 
 # Deployment 
-
 in the root folder run `docker-compose up --build -d `
+
