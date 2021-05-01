@@ -60,12 +60,15 @@ const Login = () => {
 
 export default Login;
 
-const useClasses = makeStyles({
+const useClasses = makeStyles(theme => ({
   wrapper: {
     width: 500,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    [theme.breakpoints.down('xs')]: {
+      width:'100%'
+    }
   },
   inputWrapper: {
     margin: 20,
@@ -73,4 +76,4 @@ const useClasses = makeStyles({
   errorMsg: {
     color: "red",
   },
-});
+}));

@@ -19,13 +19,13 @@ interface IAutoComplete {
 }
 
 interface AutoCompleteProps {
-  address: string; 
+  address: string;
   handleChange: (address: string) => void;
   handleSelect: (address: string) => void;
 }
-const AutoComplete:React.FC<AutoCompleteProps> = (props) => {
-  const {address, handleChange, handleSelect} = props;
-  
+const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
+  const { address, handleChange, handleSelect } = props;
+
   // current user location
   const [userLocation, setUserLocation] = useState<IUserLocation>({
     longitude: null,
@@ -66,8 +66,10 @@ const AutoComplete:React.FC<AutoCompleteProps> = (props) => {
               })}
             />
 
-            <Box className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
+            <Box
+              className="autocomplete-dropdown-container"
+              style={{ position: "absolute", left: 0, right: 0, zIndex: 9999 }}
+            >
               {suggestions.map((suggestion: any) => {
                 const className = suggestion.active
                   ? "suggestion-item--active"
@@ -100,7 +102,6 @@ const AutoComplete:React.FC<AutoCompleteProps> = (props) => {
           </div>
         )}
       </PlacesAutocomplete>
-
     </Box>
   );
 };

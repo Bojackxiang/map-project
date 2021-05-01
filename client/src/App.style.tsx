@@ -8,6 +8,7 @@ export const useClasses = makeStyles({
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
+        position: "relative",
     },
     appWrapper_content: {
         flexGrow: 1,

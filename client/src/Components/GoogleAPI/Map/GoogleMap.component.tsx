@@ -19,38 +19,38 @@ const GoogleMapComponent: React.FC<IGoogleMapComponent> = (props) => {
   const { myLocation, selectedLocation } = props;
   const DirectionsService = new google.maps.DirectionsService();
   let [directions, setDirections] = useState<any>(null);
-  const [errorMsg, setErrorMsg] = useState('')
-  const classes = useClasses()
+  const [errorMsg, setErrorMsg] = useState("");
+  const classes = useClasses();
 
   useEffect(() => {
-      if (
-        selectedLocation.latitude &&
-        selectedLocation.longitude &&
-        myLocation.latitude &&
-        myLocation.longitude
-      ) {
-        DirectionsService.route(
-          {
-            origin: { lat: myLocation.latitude, lng: myLocation.longitude },
-            destination: {
-              lat: selectedLocation.latitude,
-              lng: selectedLocation.longitude,
-            },
-            travelMode: google.maps.TravelMode.DRIVING,
+    if (
+      selectedLocation.latitude &&
+      selectedLocation.longitude &&
+      myLocation.latitude &&
+      myLocation.longitude
+    ) {
+      DirectionsService.route(
+        {
+          origin: { lat: myLocation.latitude, lng: myLocation.longitude },
+          destination: {
+            lat: selectedLocation.latitude,
+            lng: selectedLocation.longitude,
           },
-          (result, status) => {
-            if (status === google.maps.DirectionsStatus.OK) {
-              setDirections(result);
-            } else {
-              setErrorMsg('I cannot get to this place !')
-            }
+          travelMode: google.maps.TravelMode.DRIVING,
+        },
+        (result, status) => {
+          if (status === google.maps.DirectionsStatus.OK) {
+            setDirections(result);
+          } else {
+            setErrorMsg("I cannot get to this place !");
           }
-        );
-      }
-       // eslint-disable-next-line
+        }
+      );
+    }
+    // eslint-disable-next-line
   }, [selectedLocation]);
 
-  const GoogleMapDisplay = withGoogleMap((props) => {
+  const GoogleMapDisplay = withGoogleMap(() => {
     return myLocation.latitude && myLocation.longitude ? (
       <GoogleMap
         defaultCenter={{ lat: myLocation.latitude, lng: myLocation.longitude }}
@@ -76,20 +76,32 @@ const GoogleMapComponent: React.FC<IGoogleMapComponent> = (props) => {
   return (
     <Box>
       <Box>
-      <Typography className={classes.errorMsg}>{errorMsg}</Typography>
+        <Typography className={classes.errorMsg}>{errorMsg}</Typography>
       </Box>
+      <Box className={classes.mapWrapper}>
       <GoogleMapDisplay
-        containerElement={<div style={{ height: `500px`, width: "500px" }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
+          containerElement={<div className={classes.mapWrapper}/>}
+          mapElement={<div style={{ height: `100%`, width: '100%' }} />}
+        />
+      </Box>
+        
+      
     </Box>
   );
 };
 
 export default GoogleMapComponent;
 
-const useClasses = makeStyles({
+const useClasses = makeStyles(theme => ({
   errorMsg: {
-    color: 'red'
+    color: "red",
+  },
+  mapWrapper: {
+    height: '500px',
+    width: 500,
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      height: '600px'
+    }
   }
-})
+}));
