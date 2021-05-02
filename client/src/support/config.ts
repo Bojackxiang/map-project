@@ -11,7 +11,7 @@ switch (flag_deploy_mode) {
     configs.api_url = "http://188.166.249.227";
     break;
   default:
-    configs.api_url = "http://188.166.249.227";
+    configs.api_url = "http://188.166.249.227/api";
     break;
 }
 if (flag_deploy_mode === "DEV") {
