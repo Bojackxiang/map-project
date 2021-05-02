@@ -1,6 +1,5 @@
 FROM node:14.14.0-alpine
 WORKDIR '/app'
-RUN npm install -g yarn
 COPY ./package.json ./
 RUN yarn install
 COPY . .
