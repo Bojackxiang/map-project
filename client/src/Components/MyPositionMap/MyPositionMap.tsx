@@ -1,7 +1,17 @@
-import { Box, makeStyles, CircularProgress, Typography } from "@material-ui/core";
+import {
+  Box,
+  makeStyles,
+  CircularProgress,
+  Typography,
+} from "@material-ui/core";
 import React, { useCallback, useEffect } from "react";
 import { useState } from "react";
-import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from "react-google-maps";
+import {
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+  DirectionsRenderer,
+} from "react-google-maps";
 
 const BLUE_DOT = "https://www.robotwoods.com/dev/misc/bluecircle.png";
 
@@ -27,8 +37,14 @@ const MyPositionMap: React.FC<IMyPositionMap> = (props) => {
   } = props;
 
   useEffect(() => {
-    setErrorMsg('')
-    if(isShowDirection === true && latitude && longitude && selectedLongitude && selectedLatitude) {
+    setErrorMsg("");
+    if (
+      isShowDirection === true &&
+      latitude &&
+      longitude &&
+      selectedLongitude &&
+      selectedLatitude
+    ) {
       DirectionsService.route(
         {
           origin: { lat: latitude, lng: longitude },
@@ -47,8 +63,8 @@ const MyPositionMap: React.FC<IMyPositionMap> = (props) => {
         }
       );
     }
-  }, [isShowDirection, ])
-  
+    // eslint-disable-next-line
+  }, [isShowDirection]);
 
   const GoogleMapDisplay = withGoogleMap(() => {
     return (
@@ -79,9 +95,9 @@ const MyPositionMap: React.FC<IMyPositionMap> = (props) => {
             lng: longitude as number,
           }}
         />
-        {Boolean(isShowDirection) && <DirectionsRenderer directions={directions} />}
-
-        
+        {Boolean(isShowDirection) && (
+          <DirectionsRenderer directions={directions} />
+        )}
       </GoogleMap>
     );
   });
@@ -98,6 +114,7 @@ const MyPositionMap: React.FC<IMyPositionMap> = (props) => {
         )}
       </>
     );
+    // eslint-disable-next-line
   }, [latitude, longitude, selectedLatitude, selectedLongitude, directions]);
 
   return (
@@ -128,8 +145,8 @@ const useClasses = makeStyles((theme) => ({
     },
   },
   errorMsg: {
-    color: 'red'
-  }
+    color: "red",
+  },
 }));
 
 MyPositionMap.defaultProps = {

@@ -71,14 +71,15 @@ const Home = () => {
       (error) => {
         setUIStatus({
           error: true,
-          errorMessage: `Error happens when find your location: ${error.message}`,
+          errorMessage: `Error happens when find your location: ${error.message}. So we we set the default location at town hall`,
           loading: false,
         });
+        setUserLocation({ longitude: 151.207001, latitude: -33.873001 });
       }
     );
   }, []);
 
-  // alert display control 
+  // alert display control
   useEffect(() => {
     let timer: any = null;
     if (alertDisplay === true) {
@@ -94,13 +95,14 @@ const Home = () => {
   // methods group
   const methods = {
     _onHandleInputChange: useCallback((address: string) => {
-      setShowDirection(false)
+      setShowDirection(false);
       if (showDirection) setShowDirection(false);
       setAutoCompleteAddress(address);
+      // eslint-disable-next-line
     }, []),
 
     _onHandleSelectAddress: async (address: string) => {
-      setShowDirection(false)
+      setShowDirection(false);
       if (showDirection) setShowDirection(false);
       const results = await geocodeByAddress(address);
       const position = await getLatLng(results[0]);
@@ -121,8 +123,8 @@ const Home = () => {
         !selectedAddress.longitude
       ) {
         setAlertDisplay(true);
-      }else {
-        setShowDirection(true)
+      } else {
+        setShowDirection(true);
       }
     },
   };
