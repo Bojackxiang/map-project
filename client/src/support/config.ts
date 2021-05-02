@@ -8,7 +8,7 @@ switch (flag_deploy_mode) {
     configs.api_url = "http://localhost:3001";
     break;
   case "PRODUCTION":
-    configs.api_url = "http://188.166.249.227";
+    configs.api_url = "http://188.166.249.227/api";
     break;
   default:
     configs.api_url = "http://188.166.249.227/api";
