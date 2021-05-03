@@ -16,8 +16,6 @@ class FirebaseService {
 
     async fire_base_starter() {
         try {
-            
-
             this._firebaseDatabase = await firebase.initializeApp(
                 firebaseConfig
             );
@@ -29,7 +27,7 @@ class FirebaseService {
                     serviceAccount as ServiceAccount
                 ),
             });
-
+            console.log('here')
             return true;
         } catch (error) {
             console.log(error.message);
